@@ -10,8 +10,76 @@
 
 #pragma warning(disable:4996)
 
+class Receiver
+{
+public:
+	void receive_line(SOCKET & sock);
+	void show();
+	const char * get_text() const;
+
+private:
+	static const int buff_bytes = 2048;
+	char buffer[buff_bytes];
+};
+
+void Receiver::receive_line(SOCKET & sock)
+{
+	int total_bytes = 0;
+	while (true)
+	{
+		total_bytes += recv(sock, buffer, buff_bytes, 0);
+		if (total_bytes < 2) continue;
+		if (buffer[total_bytes - 2] != '\r') continue;
+		if (buffer[total_bytes - 1] != '\n') continue;
+		break;
+	}
+
+	buffer[total_bytes] = 0;
+}
+
+void Receiver::show()
+{
+	puts(buffer);
+}
+
+const char * Receiver::get_text() const
+{
+	return buffer;
+}
+
+
+bool get_status(SOCKET & sock)
+{
+	Receiver receiver;
+
+	char * user = "USER nhs30070";
+	printf("%s\n", user);
+	char command_user[1024];
+	sprintf(command_user, "%s%s", user, "\r\n");
+	send(sock, command_user, strlen(command_user), 0);
+
+	receiver.receive_line(sock);
+	receiver.show();
+
+	char * pass = "PASS d19941005";
+	printf("%s\n", pass);
+	char command_pass[1024];
+	sprintf(command_pass, "%s%s", pass, "\r\n");
+	send(sock, command_pass, strlen(command_pass), 0);
+
+	receiver.receive_line(sock);
+	receiver.show();
+
+	puts("user name and password is ok.\n");
+	// todo
+	return true;
+}
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	Receiver receiver;
+
 	SOCKET sock;
 	SOCKADDR_IN ServAddr;
 	u_short ServPort = 110;
@@ -42,57 +110,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		return -1;
 	}
 
-	totalBytesRcvd = 0;
-	while (true)
-	{
-		totalBytesRcvd += recv(sock, receiveBuffer, 1024, 0);
-		if (totalBytesRcvd < 2) continue;
-		if (receiveBuffer[totalBytesRcvd - 2] != '\r') continue;
-		if (receiveBuffer[totalBytesRcvd - 1] != '\n') continue;
-		break;
-	}
+	receiver.receive_line(sock);
+	receiver.show();
 
-	receiveBuffer[totalBytesRcvd] = 0;
-	printf("%s\n", receiveBuffer);
-
-
-	char * user = "USER nhs30070";
-	printf("%s\n", user);
-	char command_user[1024];
-	sprintf(command_user, "%s%s", user, "\r\n");
-	send(sock, command_user, strlen(command_user), 0);
-
-	totalBytesRcvd = 0;
-	while (true)
-	{
-		totalBytesRcvd += recv(sock, receiveBuffer, 1024, 0);
-		if (totalBytesRcvd < 2) continue;
-		if (receiveBuffer[totalBytesRcvd - 2] != '\r') continue;
-		if (receiveBuffer[totalBytesRcvd - 1] != '\n') continue;
-		break;
-	}
-
-	receiveBuffer[totalBytesRcvd] = 0;
-	printf("%s\n", receiveBuffer);
-
-	char * pass = "PASS a19941005";
-	printf("%s\n", pass);
-	char command_pass[1024];
-	sprintf(command_pass, "%s%s", pass, "\r\n");
-	send(sock, command_pass, strlen(command_pass), 0);
-
-	totalBytesRcvd = 0;
-	while (true)
-	{
-		totalBytesRcvd += recv(sock, receiveBuffer, 1024, 0);
-		if (totalBytesRcvd < 2) continue;
-		if (receiveBuffer[totalBytesRcvd - 2] != '\r') continue;
-		if (receiveBuffer[totalBytesRcvd - 1] != '\n') continue;
-		break;
-	}
-
-	receiveBuffer[totalBytesRcvd] = 0;
-	printf("%s\n", receiveBuffer);
+	get_status(sock);
 
 	char * stat = "STAT";
 	printf("%s\n", stat);
@@ -100,18 +121,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	sprintf(command_stat, "%s%s", stat, "\r\n");
 	send(sock, command_stat, strlen(command_stat), 0);
 
-	totalBytesRcvd = 0;
-	while (true)
-	{
-		totalBytesRcvd += recv(sock, receiveBuffer, 1024, 0);
-		if (totalBytesRcvd < 2) continue;
-		if (receiveBuffer[totalBytesRcvd - 2] != '\r') continue;
-		if (receiveBuffer[totalBytesRcvd - 1] != '\n') continue;
-		break;
-	}
-
-	receiveBuffer[totalBytesRcvd] = 0;
-	printf("%s\n", receiveBuffer);
+	receiver.receive_line(sock);
+	receiver.show();
 
 	char * quit = "QUIT";
 	printf("%s\n", quit);
@@ -119,18 +130,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	sprintf(command_quit, "%s%s", quit, "\r\n");
 	send(sock, command_quit, strlen(command_quit), 0);
 
-	totalBytesRcvd = 0;
-	while (true)
-	{
-		totalBytesRcvd += recv(sock, receiveBuffer, 1024, 0);
-		if (totalBytesRcvd < 2) continue;
-		if (receiveBuffer[totalBytesRcvd - 2] != '\r') continue;
-		if (receiveBuffer[totalBytesRcvd - 1] != '\n') continue;
-		break;
-	}
-
-	receiveBuffer[totalBytesRcvd] = 0;
-	printf("%s\n", receiveBuffer);
+	receiver.receive_line(sock);
+	receiver.show();
 
 	shutdown(sock, SD_BOTH);
 	closesocket(sock);
