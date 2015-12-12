@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <winsock2.h>
 #include <stdlib.h>
+#include <fstream>
 
 #pragma comment(lib, "ws2_32")
 
@@ -119,7 +120,7 @@ int MailDownloader::get_mail_quantity() const
 void MailDownloader::download_show_mail(int index)
 {
 	char request[1024];
-	sprintf(request, "RETR %u\r\n", index);
+	sprintf(request, "RETR %u\r\n", index+1);
 	send(sock, request, strlen(request), 0);
 
 	Receiver receiver;
@@ -132,10 +133,13 @@ void MailDownloader::download_show_mail(int index)
 		return;
 	}
 
+	std::ofstream ofs("log.dat", std::ios::out | std::ios::trunc | std::ios::binary);
+
 	while (true)
 	{
 		receiver.receive_line(sock);
 		receiver.show();
+		ofs.write(receiver.get_text(), strlen(receiver.get_text()));
 		const char * text = receiver.get_text();
 		const int length = strlen(text);
 		const char * end3 = text + length - 3;

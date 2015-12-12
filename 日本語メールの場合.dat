@@ -1,0 +1,46 @@
+Received: from ns2.hal.ac.jp [172.18.254.11] by nagoya.hal.ac.jp with ESMTP
+  (SMTPD-11.03) id d1b0000064fc3e82; Thu, 26 Nov 2015 14:53:23 +0900
+Received: from mail-lf0-f54.google.com (mail-lf0-f54.google.com [209.85.215.54])
+	by ns2.hal.ac.jp (Postfix) with ESMTP id CEC7F26005C
+	for <nhs30070@nagoya.hal.ac.jp>; Thu, 26 Nov 2015 14:53:21 +0900 (JST)
+Received: by lfdl133 with SMTP id l133so84783551lfd.2
+        for <nhs30070@nagoya.hal.ac.jp>; Wed, 25 Nov 2015 21:53:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        bh=ikVn9e7H1DDMdinz5Q3wBeE4a33OKByyJLLJ79mbn+8=;
+        b=w2Jq498cDEws/V4ID0HuLcFKhnEWIdQbB7c8kNQU7UW+ZvMh8aU0mHiLcKFW430lNh
+         92h6uMDcBt335Vy473tIjSvl4c4IX6SsXBku1U9FRy3CtR1tVYel+AcznGHsxgwd4S1q
+         B9uESnYw1ayFuUFOdPSI0YGctszDm+U+ng0tym0kPXgYGvcKgEjAmthwXBeqULdawRvR
+         HreAIhoDe0HpbzJQvzmZXUk3+9kH+ZLXS/OcUG2ixFYYDc+ndXpEglY2TgNvQLOp/iVS
+         5685NwNLzGF7dEudT7DjVnGsHienQpe9V9xrJso1x/0BNcCxqOxgS8k2DEcTUAaqPkuU
+         P64Q==
+MIME-Version: 1.0
+X-Received: by 10.112.181.225 with SMTP id dz1mr13515780lbc.103.1448517196592;
+ Wed, 25 Nov 2015 21:53:16 -0800 (PST)
+Received: by 10.114.80.98 with HTTP; Wed, 25 Nov 2015 21:53:16 -0800 (PST)
+Date: Thu, 26 Nov 2015 14:53:16 +0900
+Message-ID: <CA+J_CxkPa2VFN30UC0-ThsL0zRAdWzjAggw_sdRCzEQwOAGJHQ@mail.gmail.com>
+Subject: =?UTF-8?B?44OG44K544OI?=
+From: =?UTF-8?B?5bCP6YeO5q2j6LK0?= <118.ono.masaki@gmail.com>
+To: nhs30070@nagoya.hal.ac.jp
+Content-Type: multipart/alternative; boundary=001a11c3743ef43f1b05256b3016
+X-RCPT-TO: <nhs30070@nagoya.hal.ac.jp>
+Status:  
+X-UIDL: 747923110
+X-IMail-ThreadID: d1b0000064fc3e82
+
+--001a11c3743ef43f1b05256b3016
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+44OG44K544OIDQrmlLnooYwNCg0K56m66KGMDQo=
+--001a11c3743ef43f1b05256b3016
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PGRpdiBkaXI9Imx0ciI+44OG44K544OIPGRpdj7mlLnooYw8L2Rpdj48ZGl2Pjxicj48L2Rpdj48
+ZGl2PuepuuihjDwvZGl2PjxkaXY+PGJyPjwvZGl2PjwvZGl2Pg0K
+--001a11c3743ef43f1b05256b3016--
+
+.

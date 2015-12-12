@@ -1,0 +1,45 @@
+Received: from ns2.hal.ac.jp [172.18.254.11] by nagoya.hal.ac.jp with ESMTP
+  (SMTPD-11.03) id 53e60000615738d6; Thu, 19 Nov 2015 17:53:51 +0900
+Received: from mail-lb0-f170.google.com (mail-lb0-f170.google.com [209.85.217.170])
+	by ns2.hal.ac.jp (Postfix) with ESMTP id 710D426005C
+	for <nhs30070@nagoya.hal.ac.jp>; Thu, 19 Nov 2015 17:53:49 +0900 (JST)
+Received: by lbbsy6 with SMTP id sy6so39345271lbb.2
+        for <nhs30070@nagoya.hal.ac.jp>; Thu, 19 Nov 2015 00:53:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        bh=Zpi3kioAAx0uUccmxoluoJX6epP9gy+PjvJl8jts1dI=;
+        b=hxLNhHR5GpjwgZ66jP05t/cWvz+wGBESJMKTy1450pSRgrKCjju5UJe7OvpI+M7GB3
+         FeeTl/k7CV8mQDs5dUzdm66h6MvQIJ6DWhEX9TJf5KpcA8jLWNTrTvsYNxFt8jNycqZ9
+         qsC2yQkRl2sFYepLC1sNp6UpCK/HZSvHH54jGIXSZ9GMEXyXRLXVqElbEBYo/WQv+Q7B
+         mAqqWEWkxxCCzL3uscNdAv3h0luLrUgC2TIqBWJx2w4swVXp75m5DSAkfEOariDSKKdE
+         qXox5Rq6MI4GioFdr4hTEf06q0caZUOUohKXC3I5Vc4RguiwhYTMo4kZ0VrdGBl5Nx74
+         9qBQ==
+MIME-Version: 1.0
+X-Received: by 10.112.247.103 with SMTP id yd7mr2701255lbc.46.1447923226130;
+ Thu, 19 Nov 2015 00:53:46 -0800 (PST)
+Received: by 10.114.80.98 with HTTP; Thu, 19 Nov 2015 00:53:46 -0800 (PST)
+Date: Thu, 19 Nov 2015 17:53:46 +0900
+Message-ID: <CA+J_Cxn+6hpNgi3v8+AnKG0_-fiZJ0t=a=xjiE8Sk1dcHdWegg@mail.gmail.com>
+Subject: test
+From: =?UTF-8?B?5bCP6YeO5q2j6LK0?= <118.ono.masaki@gmail.com>
+To: nhs30070@nagoya.hal.ac.jp
+Content-Type: multipart/alternative; boundary=001a1136022e8e44660524e0e53b
+X-RCPT-TO: <nhs30070@nagoya.hal.ac.jp>
+Status: `
+X-UIDL: 747923109
+X-IMail-ThreadID: 53e60000615738d6
+
+--001a1136022e8e44660524e0e53b
+Content-Type: text/plain; charset=UTF-8
+
+test
+
+--001a1136022e8e44660524e0e53b
+Content-Type: text/html; charset=UTF-8
+
+<div dir="ltr">test</div>
+
+--001a1136022e8e44660524e0e53b--
+
+.
